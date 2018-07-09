@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+	<title>Home | E-Shopper</title>
+	
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -206,6 +213,91 @@
 		</div>
 	</section><!--/slider-->
 	
+	<!-- nav tabs -->
+
+	<div class="container">
+		<div class="tabbable col-sm-9">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#one" data-toggle="tab">One</a></li>
+				<li><a href="#two" data-toggle="tab">Two</a></li>
+				<li><a href="#three" data-toggle="tab">Three</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="one">
+					<div class="form-group col-md-2">
+						<input type="text" class="form-control" placeholder="Size" data-toggle="modal" data-target="#exampleModal">
+					</div>
+					<div class="form-group col-md-3">
+						<input type="text" class="form-control" placeholder="Available">
+					</div>
+					<div class="col-md-3 nav-text-one">
+						<p>One-Time Rental:Rent styles for 4 days</p>
+					</div>
+				</div>
+				<div class="tab-pane" id="two">
+					<div class="form-group col-md-2">
+						<input type="text" class="form-control" placeholder="Size">
+					</div>
+					<div class="form-group col-md-3">
+						<input type="text" class="form-control" placeholder="Available">
+					</div>
+					<div class="col-md-4 nav-text-2n3">
+						<p>Rent 4 styles, swap them anytime <s>$159/month</s> <span class="nav-text-color">$99 trial month</span> </p>
+					</div>
+					<div class="col-md-2">
+						<button class="btn btn-default">Try Unlimited</button>
+					</div>
+				</div>
+				<div class="tab-pane" id="three">
+					<div class="form-group col-md-2">
+						<input type="text" class="form-control" placeholder="Size">
+					</div>
+					<div class="form-group col-md-3">
+						<input type="text" class="form-control" placeholder="Available">
+					</div>
+					<div class="col-md-4 nav-text-2n3">
+							<p>Rent 4 styles, swap once a month <s>$89/month</s> <span class="nav-text-color">20% off trial month</span></p>
+						</div>
+					<div class="col-md-2">
+						<button class="btn btn-default">Try Unlimited</button>
+					</div>
+				</div>
+			 </div>
+		</div>
+	</div>
+	
+	<!-- nav tabs end -->
+<!-- //////////////////////////////////////// -->
+	<!-- nav modal -->
+
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary"  >
+		Launch demo modal
+	</button>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- nav modal end -->
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -1071,10 +1163,10 @@
 			<div class="innter-form">
 				<form class="sa-innate-form" method="post">
 				<label>Email Address</label>
-				<input type="text" name="username">
+				<input type="text" name="username" id="txtEmail">
 				<label>Password</label>
-				<input type="password" name="password">
-				<button type="submit">Sign In</button>
+				<input type="password" name="password" id="txtPass">
+				<button type="submit" id="btnLogin">Sign In</button>
 				<a href="">Forgot Password?</a>
 				</form>
 				</div>
@@ -1092,12 +1184,13 @@
 				<div class="innter-form">
 				<form class="sa-innate-form" method="post">
 				<label>Name</label>
-				<input type="text" name="username">
+				<input type="text" name="username" id="txtUser">
 				<label>Email Address</label>
-				<input type="text" name="username">
+				<input type="text" name="username" id="txtEmail">
 				<label>Password</label>
-				<input type="password" name="password">
-				<button type="submit">Join now</button>
+				<input type="password" name="password" id="txtPass">
+				<button type="submit" id="btnSignUp">Join now</button>
+				<button type="submit" id="btnLogOut">Log Out</button>
 				<p>By clicking Join now, you agree to hifriends's User Agreement, Privacy Policy, and Cookie Policy.</p>
 				</form>
 				</div>
@@ -1119,7 +1212,12 @@
 	</div>
   
   </div>
+<!-- <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script> -->
+	
   
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>

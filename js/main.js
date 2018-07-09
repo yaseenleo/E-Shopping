@@ -56,26 +56,73 @@ $(document).ready(function(){
 	}
     
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ // Authentication
 
+// Initialize firebase
+var config = {
+    apiKey: "AIzaSyA7rfBhIutZdEG0R7xANM3Wy27lV7GP2-Q",
+    authDomain: "yaseen-site.firebaseapp.com",
+    databaseURL: "https://yaseen-site.firebaseio.com",
+    projectId: "yaseen-site",
+    storageBucket: "yaseen-site.appspot.com",
+    messagingSenderId: "1093689830600"
+  };
+  firebase.initializeApp(config);
+
+// Get Elements
+
+
+var btnLogin = document.getElementById("btnLogin");
+var btnSignUp = document.getElementById("btnSignUp");
+var btnLogOut = document.getElementById("btnLogOut");
+
+// Add Sign Up Event
+
+btnSignUp.addEventListener("click", e => {
+	var txtUser = document.getElementById("txtUser");
+var txtEmail = document.getElementById("txtEmail");
+var txtPassword = document.getElementById("txtPassword");
+	window.alert("dsds");
+	// Get email and password
+	var user = txtUser.value();
+	var email = txtEmail.value();
+	var password = txtPassword.value();
+	window.alert(password);
+
+	const auth = firebase.auth();
+
+	// Sign Up
 	
+	const promise = auth.createUserWithEmailAndPassword( email, password);
+	promise.catch(e => console.log(e.message))
+});
+
+// Add Login Event
+
+btnLogin.addEventListener("click", e => {
+
+	// Get email and password
+	const email = txtEmail.value;
+	const password = txtPassword.value;
+	const auth = firebase.auth();
+
+	// Sign In
+	const promise = auth.signInWithEmailAndPassword(email, password);
+	promise.catch(e => console.log(e.message))
+});
+
+btnLogOut.addEventListener("click", e => {
+	firebase.auth().signOut();
+})
+
+// Add a realtime listner
+firebase.auth().onAuthStateChanged(firebaseUser => {
+	if (firebaseUser) {
+		console.log(firebaseUser);
+	}
+
+	else {
+		console.log("not logged in");
+	}
+})
+   
